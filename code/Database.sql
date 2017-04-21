@@ -1,0 +1,11 @@
+CREATE TABLE Menu (ID int(10) NOT NULL AUTO_INCREMENT, name varchar(255) NOT NULL, color varchar(10), layout varchar(255), `date` date, PRIMARY KEY (ID));
+CREATE TABLE Recipe (ID int(10) NOT NULL AUTO_INCREMENT, name int(255) NOT NULL, cooker varchar(10), MenuID int(10) NOT NULL, PRIMARY KEY (ID));
+CREATE TABLE Instruction (ID int(10) NOT NULL AUTO_INCREMENT, title varchar(50) NOT NULL UNIQUE, content varchar(255) NOT NULL, PRIMARY KEY (ID));
+CREATE TABLE Ingredient (ID int(10) NOT NULL AUTO_INCREMENT, name varchar(50) NOT NULL UNIQUE, type varchar(50), detail varchar(255), PRIMARY KEY (ID));
+CREATE TABLE Ingredient_line (quantity int(10) NOT NULL, RecipeID int(10) NOT NULL, IngredientID int(10) NOT NULL, PRIMARY KEY (RecipeID, IngredientID));
+CREATE TABLE Instruction_line (RecipeID int(10) NOT NULL, InstructionID int(10) NOT NULL, PRIMARY KEY (RecipeID, InstructionID));
+ALTER TABLE Recipe ADD INDEX FKRecipe461798 (MenuID), ADD CONSTRAINT FKRecipe461798 FOREIGN KEY (MenuID) REFERENCES Menu (ID);
+ALTER TABLE Ingredient_line ADD INDEX FKIngredient940671 (RecipeID), ADD CONSTRAINT FKIngredient940671 FOREIGN KEY (RecipeID) REFERENCES Recipe (ID);
+ALTER TABLE Ingredient_line ADD INDEX FKIngredient98521 (IngredientID), ADD CONSTRAINT FKIngredient98521 FOREIGN KEY (IngredientID) REFERENCES Ingredient (ID);
+ALTER TABLE Instruction_line ADD INDEX FKInstructio484462 (RecipeID), ADD CONSTRAINT FKInstructio484462 FOREIGN KEY (RecipeID) REFERENCES Recipe (ID);
+ALTER TABLE Instruction_line ADD INDEX FKInstructio974307 (InstructionID), ADD CONSTRAINT FKInstructio974307 FOREIGN KEY (InstructionID) REFERENCES Instruction (ID);
