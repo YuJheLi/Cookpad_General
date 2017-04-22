@@ -105,27 +105,27 @@ The `Database.sql` in the code directory. Please check the file to see the SQL b
 ### Design and Evaluation
 ------
 
-**Menu**
+**[Menu]**
 
 has columns ID, name, color, layout, and the date. The ID indicated that each ID should menu should be tracted.
 
-**Recipe**
+**[Recipe]**
 
 has columns ID, name, cooker, and returning menuID. The returning MenuID means one menu can have many recipes.
 
-**Ingredient**
+**[Ingredient]**
 
 has columns ID, name, type, and detail. The name is unique because two same ingredients should not be existed at the same time.
 
-**Ingredient line**
+**[Ingredient line]**
 
 has quantity, recipe ID and IngredientID. The reason why I built the table because there is going to have two recipes having same ingredient. In order to avoid duplicate ingredient, I made this table to indicate different recipes may have different quantity of the same ingredients, and which looks user-friendly.
 
-**Instruction**
+**[Instruction]**
 
 has columns ID, title, and content. The name is unique because two same instruciton should not be existed at the same time.
 
-**Instruction line**
+**[Instruction line]**
 
 has recipe ID and IngredientID. The reason why I built the table because there is going to have two recipes having same instruction. In order to avoid duplicate instruction, I made this table to indicate different recipes may have the same instructions, and which looks user-friendly.
 
