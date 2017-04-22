@@ -4,12 +4,20 @@
  * 
 '''
 import json
-import numpy as np
 import requests
 import sys
 
 #Parse the userID from input
 user_id = sys.argv[1]
+
+#Check the correctness of the input format and ID range
+if len(sys.argv)!= 2:
+    print "Please type a userID or do not type more than one userID"
+    sys.exit(0)
+
+elif int(user_id) <= 0 or int(user_id) > 10:
+    print "The userID should in the range 0 to 10"
+    sys.exit(0)
 
 #Request the result by url
 r = requests.get('http://fg-69c8cbcd.herokuapp.com/user/'+str(user_id))
