@@ -1,2 +1,3 @@
+#! /bin/bash
 #The excute file
-python ./code/user_parser.py $1
+python ./code/user_parser.py $@
