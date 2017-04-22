@@ -77,6 +77,7 @@ has friend named Dan
 ----------------------------------
 ```
 ### Design and Evaluation
+
 The program was built only on the one source code named `user_parser.py`. Which imported library `json`, `requests`, and `sys`.
 
 1. The `json` library was used for parse json format text.
@@ -97,28 +98,35 @@ Consider a system for storing recipes that uses a relational database. This data
 
  <img src="graph/Database.png"/>
 
-##SQL code
+## SQL code
+
 The `Database.sql` in the code directory. Please check the file to see the SQL building code.
 
 ### Design and Evaluation
 ------
 
 **Menu**
+
 has columns ID, name, color, layout, and the date. The ID indicated that each ID should menu should be tracted.
 
 **Recipe**
+
 has columns ID, name, cooker, and returning menuID. The returning MenuID means one menu can have many recipes.
 
 **Ingredient**
+
 has columns ID, name, type, and detail. The name is unique because two same ingredients should not be existed at the same time.
 
 **Ingredient line**
+
 has quantity, recipe ID and IngredientID. The reason why I built the table because there is going to have two recipes having same ingredient. In order to avoid duplicate ingredient, I made this table to indicate different recipes may have different quantity of the same ingredients, and which looks user-friendly.
 
 **Instruction**
+
 has columns ID, title, and content. The name is unique because two same instruciton should not be existed at the same time.
 
 **Instruction line**
+
 has recipe ID and IngredientID. The reason why I built the table because there is going to have two recipes having same instruction. In order to avoid duplicate instruction, I made this table to indicate different recipes may have the same instructions, and which looks user-friendly.
 
 
